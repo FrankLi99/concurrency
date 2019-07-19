@@ -49,12 +49,16 @@ public class ConcurrencyTest {
         logger.info("count after countDownLatch...:"+count);
     }
 
-    public synchronized static void add(){
-        /*if(lock.tryLock()){
-                lock.lock();
+    public  static void add(){
+        if(lock.tryLock()){
+//                lock.lock();
+            try{
                 count++;
+            }finally {
                 lock.unlock();
-        }*/
-        count++;
+            }
+            }
+
+//        count++;
     }
 }
